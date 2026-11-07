@@ -6,6 +6,17 @@ A simple implementation of the unidirectional data flow pattern for state manage
 
 This implementation provides a minimal framework for developing interactive applications using vanilla JavaScript. The idea behind this library is to enable development of small isolated interactive applications using consistent patterns and minimal dependencies. Applications developed in this way could be ideal reference examples because when implemented in this way, they can easily be wrapped or packaged as components in various frameworks.
 
+## Small-library development notes
+
+This package is a vanilla JavaScript state-management pattern and **not** a full application framework. [`src/index.js`](src/index.js) is the export entry point; [`src/unidirectionalDataFlow.js`](src/unidirectionalDataFlow.js) contains its implementation and the adjacent [test](src/unidirectionalDataFlow.test.js) documents expected behavior.
+
+```bash
+npm ci
+npm test -- --run
+```
+
+The root test script uses Vitest; `--run` requests a non-watch execution. There is **no root build script**, and consumers import the source entry point directly. For production applications, independently assess component lifecycle, error handling, and integration with the host framework.
+
 ## Features
 
 - **Unidirectional Data Flow**: Unify and simplity your state management
